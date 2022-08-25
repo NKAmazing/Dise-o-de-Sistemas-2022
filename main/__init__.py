@@ -21,5 +21,7 @@ def create_app():
     # Url de configuración de base de datos
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME')
     db.init_app(app)
-    #TODO: agregar routers
+    from main.resources import scrapblue, home 
+    app.register_blueprint(home,url_prefix="/api/v1")
+    app.register_blueprint(scrapblue,url_prefix="/api/v1")
     return app
