@@ -21,4 +21,5 @@ def create_app():
     # Url de configuración de base de datos
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME')
     db.init_app(app)
+    #TODO: agregar routers
     return app
