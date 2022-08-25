@@ -2,6 +2,7 @@ from .. import db
 from sqlalchemy.ext.hybrid import hybrid_property
 
 class User(db.Model):
+    __tablename__ = 'users'
     __id = db.Column('id', db.Integer, primary_key=True, nullable=False)
     __discord_id = db.Column('discord_id', db.Integer, nullable=False)
     __name = db.Column('name', db.String(100), nullable=False)
