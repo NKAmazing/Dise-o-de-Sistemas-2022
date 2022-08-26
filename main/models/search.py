@@ -6,7 +6,7 @@ class Search(db.Model):
     __id = db.Column('id', db.Integer, primary_key=True, nullable=False)
     __keywords = db.Column('keywords', db.String(100), nullable = False)
     __date = db.Column('date', db.DateTime, nullable=False)
-    __user_id = db.Column('user_id', db.ForeignKey('user.id'), nullable=False)
+    __user_id = db.Column('user_id', db.ForeignKey('users.id'), nullable=False)
 
     def __repr__(self):
         return f'< User:  {self.__id} {self.__keywords} {self.__date}, {self.__user_id}>'
@@ -36,6 +36,7 @@ class Search(db.Model):
     def keywords(self):
         del self.__keywords
 
+    @hybrid_property
     def date(self):
         return self.__date
 

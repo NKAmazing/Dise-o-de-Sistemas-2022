@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.remote.webdriver import WebDriver
 import os 
 
 class BrowserFirefox:
@@ -24,7 +25,9 @@ class BrowserFirefox:
         #browser.set_window_position(0, 0)
         return browser
 
-    def search(self, keyword:str):
+    def search(self, keyword:str) -> WebDriver :
         #TODO: buscar en el sitio codigofacilito devoler html 
-        browser = self.__get_browser()
-        browser.get(f"https://codigofacilito.com/search?keyword={keyword}")
+        #Open Browser
+        driver = self.__get_browser()
+        driver.get(f'https://codigofacilito.com/search?utf8=✓&keyword={keyword}')
+        return driver
