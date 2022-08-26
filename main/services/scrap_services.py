@@ -32,6 +32,6 @@ class ScrapServices:
     def save_data(self, datalist):
         #TODO: guardar los 
         pass
-    def parser(self, html:str):
-        #TODO: 
+    
+    def parser(self, html):
         pass
