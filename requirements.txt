@@ -3,3 +3,4 @@ Flask-Discord
 python-dotenv
 flask_sqlalchemy
 selenium
+webdriver-manager
