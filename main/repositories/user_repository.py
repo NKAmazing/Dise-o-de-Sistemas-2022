@@ -18,7 +18,7 @@ class UserRepository(Create, Read, Update, Delete):
          db.session.commit() 
 
     def delete_by_id(self, id: int):
-        db.session.query(self.type_model).filter_by(id=id).delete() # Elimina el modelo de la sesión
+        db.session.query(self.type_model).filter_by(id=id).delete() 
         db.session.commit() 
 
 
@@ -26,4 +26,4 @@ class UserRepository(Create, Read, Update, Delete):
         return db.session.query(db.Model).all()
 
     def find_by_id(self, id: int) -> db.Model:
-        return db.session.query(self.type_model).filter_by(id=id).first() # Retorna el modelo si existe, de lo contrario retorna None
+        return db.session.query(self.type_model).filter_by(id=id).first() 
