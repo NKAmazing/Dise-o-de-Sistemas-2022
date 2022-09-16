@@ -4,19 +4,26 @@ from .. import db
 class UserRepository(Create, Read, Update, Delete):
 
     def create(self, model: db.Model):
-        pass
+        db.session.add(model) 
+        db.session.commit() 
+        return model 
 
     def update(self, model: db.Model) -> db.Model:
-        pass
+         db.session.merge(model)
+         db.session.commit() 
+         return model 
 
     def delete(self, model: db.Model):
-        pass 
+         db.session.delete(model) 
+         db.session.commit() 
 
     def delete_by_id(self, id: int):
-        pass
+        db.session.query(self.type_model).filter_by(id=id).delete() # Elimina el modelo de la sesión
+        db.session.commit() 
+
 
     def find_all(self):
-        pass
+        return db.session.query(db.Model).all()
 
     def find_by_id(self, id: int) -> db.Model:
-        pass
+        return db.session.query(self.type_model).filter_by(id=id).first() # Retorna el modelo si existe, de lo contrario retorna None
