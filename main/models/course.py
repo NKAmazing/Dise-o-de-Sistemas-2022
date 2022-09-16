@@ -1,7 +1,7 @@
 from .. import db
 from sqlalchemy.ext.hybrid import hybrid_property
 
-class Course():
+class Course(db.Model):
     __tablename__ = 'courses'
     __id = db.Column('id', db.Integer, primary_key=True, nullable=False)
     __url = db.Column('url', db.String(100), nullable = False)

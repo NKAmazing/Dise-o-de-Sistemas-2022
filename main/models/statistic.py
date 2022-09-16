@@ -1,7 +1,7 @@
 from .. import db
 from sqlalchemy.ext.hybrid import hybrid_property
 
-class Statistic():
+class Statistic(db.Model):
     __tablename__ = 'statistics'
     __id = db.Column('id', db.Integer, primary_key=True, nullable=False)
     __user_id = db.Column('user_id', db.ForeignKey('user.id'), nullable=False)
